@@ -89,8 +89,12 @@ namespace ISP7_FinalEdition
 
         public int CompareTo(object obj)
         {
-            RationalNumber rationalNumber1 = obj as RationalNumber;
-            return (this.N / this.M).CompareTo(rationalNumber1.N / rationalNumber1.M);
+            RationalNumber rationalNum = obj as RationalNumber;
+            if ((this.N * rationalNum.M) < (rationalNum.N * this.M))
+                return -1;
+            if ((this.N * rationalNum.M) > (rationalNum.N * this.M))
+                return 1;
+            else return 0;
         }
     }
 
@@ -103,13 +107,13 @@ namespace ISP7_FinalEdition
             Console.Write("Введите второе число: ");
             int M = Convert.ToInt32(Console.ReadLine());
             RationalNumber rationalNumber1 = new RationalNumber(N, M);
-            RationalNumber rationalNumber2 = new RationalNumber("1 1");
+            RationalNumber rationalNumber2 = new RationalNumber("1 5");
             rationalNumber1.Print();
             rationalNumber2.Print();
             int intNumber = rationalNumber1;
             double doubleNumber = rationalNumber2;
-            Console.WriteLine(intNumber);
-            Console.WriteLine(doubleNumber);
+            Console.WriteLine(intNumber); //tselaya chast 1
+            Console.WriteLine(doubleNumber);//tselaya chast 2
             Console.WriteLine(rationalNumber1 + rationalNumber2);
             Console.WriteLine(rationalNumber1 - rationalNumber2);
             Console.WriteLine(rationalNumber1 * rationalNumber2);
