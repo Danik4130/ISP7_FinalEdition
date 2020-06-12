@@ -102,26 +102,34 @@ namespace ISP7_FinalEdition
     {
         static void Main(string[] args)
         {
-            Console.Write("Введите первое число: ");
-            int N = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Введите второе число: ");
-            int M = Convert.ToInt32(Console.ReadLine());
-            RationalNumber rationalNumber1 = new RationalNumber(N, M);
-            RationalNumber rationalNumber2 = new RationalNumber("1 5");
-            rationalNumber1.Print();
-            rationalNumber2.Print();
-            int intNumber = rationalNumber1;
-            double doubleNumber = rationalNumber2;
-            Console.WriteLine(intNumber); //tselaya chast 1
-            Console.WriteLine(doubleNumber);//tselaya chast 2
-            Console.WriteLine(rationalNumber1 + rationalNumber2);
-            Console.WriteLine(rationalNumber1 - rationalNumber2);
-            Console.WriteLine(rationalNumber1 * rationalNumber2);
-            Console.WriteLine(rationalNumber1 / rationalNumber2);
-            Console.WriteLine(rationalNumber1 > rationalNumber2);
-            Console.WriteLine(rationalNumber1 < rationalNumber2);
-            Console.WriteLine(rationalNumber1.CompareTo(rationalNumber2));
-            Console.ReadKey();
+                try
+                {
+                    Console.Write("Введите первое число: ");
+                    int N = int.Parse(Console.ReadLine());
+                    Console.Write("Введите второе число: ");
+                    int M = Convert.ToInt32(Console.ReadLine());
+                    RationalNumber rationalNumber1 = new RationalNumber(N, M);
+                    RationalNumber rationalNumber2 = new RationalNumber("1 5");
+                    rationalNumber1.Print();
+                    rationalNumber2.Print();
+                    int intNumber = rationalNumber1;
+                    double doubleNumber = rationalNumber2;
+                    Console.WriteLine(intNumber); //tselaya chast 1
+                    Console.WriteLine(doubleNumber);//tselaya chast 2
+                    Console.WriteLine(rationalNumber1 + rationalNumber2);
+                    Console.WriteLine(rationalNumber1 - rationalNumber2);
+                    Console.WriteLine(rationalNumber1 * rationalNumber2);
+                    Console.WriteLine(rationalNumber1 / rationalNumber2);
+                    Console.WriteLine(rationalNumber1 > rationalNumber2);
+                    Console.WriteLine(rationalNumber1 < rationalNumber2);
+                    Console.WriteLine(rationalNumber1.CompareTo(rationalNumber2));
+                    Console.ReadKey();
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Это НЕ число!!!\n");
+                    Console.ReadKey();
+                }  
         }
     }
 }
